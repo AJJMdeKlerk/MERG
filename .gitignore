@@ -1,0 +1,42 @@
+# Ignore the data, wiki and gtest directories
+data
+wiki
+gtest
+
+# Ignore any executables
+bin/*
+build/*
+data_for_paper/*
+
+# Ignore tags
+tags
+
+# Ignore Mac specific files
+.DS_Store
+
+# Ignore data files
+*.txt
+*.tsv
+*.out
+*.csv
+
+# Ignore auxilliary files
+*.aux
+*.eps
+*.log
+.Rdata
+.Rhistory
+.RDataTmp
+.DS_Store
+
+# Ignore plots
+*.pdf
+
+# Exceptions
+!README.txt
+
+# Ignore gtest and trial test functions
+googletest-release-1.10.0/*
+gtest-all.o
+gtest_main.o
+tests/test_mihai.cpp
