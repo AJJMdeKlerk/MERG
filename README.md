@@ -37,7 +37,7 @@ numbers of states and/or large step sizes in the NRG-routines.
 This code was written as part of my PhD under the supervision of [J-S
 Caux](https://jscaux.org/). The implementation of the Lieb-Liniger model as well
 as the scanning routines are based on ideas originating from
-[ABACUS](https://aip.scitation.org/doi/10.1063/1.3216474). For the development
+[ABACUS](https://jscaux.org/git/jscaux/ABACUS). For the development
 and implementation of the numerical renormalization group routines, I
 collaborated with [N.J. Robinson](https://neiljrobinson.com/), which resulted in
 a [paper](https://arxiv.org/pdf/1911.11101.pdf) currently under review at
