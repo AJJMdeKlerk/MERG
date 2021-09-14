@@ -15,7 +15,7 @@ namespace ABACUS_VB {
 
   std::queue<ScanState> ScanState::generateDescendents() {
     std::queue<ScanState> descendents;
-    (*this).generateLeftMovers(descendents);
+    (*this).generateRightMovers(descendents);
     if (!rightMoversPresent)
       (*this).generateLeftMovers(descendents);
     return descendents;

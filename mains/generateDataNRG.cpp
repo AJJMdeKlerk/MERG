@@ -8,7 +8,7 @@ int main() {
   int particleNumber = 10;
   double systemLength = 10.0;
   double interactionStrength = 10.0;
-  SystemInfo systemInfo {particleNumber, interactionStrength, systemLength};
+  SystemInfo systemInfo = {particleNumber, interactionStrength, systemLength};
 
   // Initialize a Bethe state, in this case the ground state
   LiebLinState groundState(systemInfo);
@@ -30,6 +30,18 @@ int main() {
   int maxNRGSteps = 100;
   std::string method = "MERG";
   NRGInfo nrgInfo = {statesKept, statesAdded, maxNRGSteps, method};
+
+  // Set the parameters for the scanning routine that supplies the states to the
+  // NRG routine
+  std::string selectionCriterion = "InteractionQuench";
+  std::string additionalOutput = "Energy";
+  std::string scanningType = "Exhaustive";
+  double maxAbsWeight = 1E+5;
+  std::pair<int, int> changeDoubledQuantumNumbs(0,0);;
+  double changeInteractionStrength = 20.0 - interactionStrength;
+  double perturbationStrength = changeInteractionStrength * systemLength;
+  ScanInfo scanInfo (seedState, seedState, selectionCriterion, additionalOutput,
+      maxAbsWeight, changeDoubledQuantumNumbs, perturbationStrength);   
 
   // Set the parameters for the state we are constructing in the basis of the
   // Hamiltonian after the quench. In this case, the ground state of the
@@ -53,7 +65,7 @@ int main() {
   // Start the NRG-routine, which includes a call to the relevant preferential
   // scanning routine, see src/ConstructorNRG.cpp for an overview of the
   // algorithm
-  NRG interactionQuench(quenchInfo, scanInfo, nrgInfo, timeEvolutionInfo);k
+  NRG interactionQuench(quenchInfo, scanInfo, nrgInfo, timeEvolutionInfo);
 
   return 0;
 }
